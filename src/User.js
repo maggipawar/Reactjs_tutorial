@@ -1,13 +1,23 @@
-import React, { useState } from 'react';
-export function User(){
-   const [data,setData]=useState('Ganesh');
-    function apple(){
-        setData('Pawar');
+import React, { Component } from 'react';
+export class User extends Component
+{
+    constructor(){
+        super();
+        this.state={
+            data:'Ganesh'
+        }
     }
-    return(
-        <div>
-            <p>{data}</p>
-            <button onClick={apple}>Click Me</button>
-        </div>
-    )
+
+    apple(){
+        this.setState({data:'Pawar'});
+    }
+    render(){
+        return(
+            <div>
+                <p>{this.state.data}</p>
+                <button onClick={()=>this.apple()}>Click Me</button>
+            </div>
+        )
+    }
+    
 }
