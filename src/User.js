@@ -1,6 +1,9 @@
-function User(){
-    return(
-        <h1>User compoenent</h1>
-    )
+import { Component } from "react";
+
+export class User extends Component{
+    render(){
+        return(
+            <h1>User Class component</h1>
+        )
+    }
 }
-export default User;
