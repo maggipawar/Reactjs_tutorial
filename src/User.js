@@ -1,12 +1,12 @@
+import React, { useState } from 'react';
 export function User(){
-    let data = 'Ganesh';
+   const [data,setData]=useState('Ganesh');
     function apple(){
-        data = 'Pawar';
-        alert(data);
+        setData('Pawar');
     }
     return(
         <div>
-            <p>User component</p>
+            <p>{data}</p>
             <button onClick={apple}>Click Me</button>
         </div>
     )
