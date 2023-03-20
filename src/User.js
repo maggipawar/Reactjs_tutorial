@@ -1,23 +1,11 @@
-import React, { Component } from 'react';
-export class User extends Component
-{
-    constructor(){
-        super();
-        this.state={
-            data:'Ganesh'
-        }
-    }
+import React from "react";
 
-    apple(){
-        this.setState({data:'Pawar'});
-    }
-    render(){
-        return(
-            <div>
-                <p>{this.state.data}</p>
-                <button onClick={()=>this.apple()}>Click Me</button>
-            </div>
-        )
-    }
-    
-}
+export const User = (props) => {
+  return (
+    <div style={{ background: "green", padding: "10px" }}>
+      <h1>User Name is:{props.Name} </h1>
+      <h2>Email is:{props.email} </h2>
+      <h4>Address is:{props.other.address}</h4>
+    </div>
+  );
+};
