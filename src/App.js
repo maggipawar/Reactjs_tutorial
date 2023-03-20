@@ -1,18 +1,17 @@
 // import logo from "./logo.svg";
 // import "./App.css";
-// import { User } from "./User";
-import { useEffect, useState } from "react";
+import { User } from "./User";
+import { useState } from "react";
 
 function App() {
   const [count, setCount] = useState(0);
-  useEffect(()=>{
-    console.log('useEffect called');
-  },[count])
+  const [data,setData]=useState(0);
+  
   return (
     <div>
-    <h1>App {count}</h1>
-    {/* <User /> */}
-    <button onClick={()=> setCount(count+1)}>Update Data</button>
+    <User count={count} data={data} />
+    <button onClick={()=> setCount(count+1)}>Update Count</button>
+    <button onClick={()=> setData(data+1)}>Update Data</button>
     </div>
   );
 }

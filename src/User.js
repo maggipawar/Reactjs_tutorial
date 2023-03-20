@@ -1,18 +1,15 @@
-import React, { Component } from 'react';
-export class User extends Component{
-  constructor(){
-    super();
-    this.state={
-      email:'Laxmi@gmail.com'
-    }
-  }
-  render(){
-    console.log(`Render with State', ${this.state.email}`);
-    return(
-      <div>
-        <h1>User component </h1>
-        <button onClick={()=> this.setState({email:'Ganesh@gmail.com'})}>Update State</button> 
-      </div>
-    )
-  }
+import { useEffect } from "react";
+
+export function User(props) {
+
+  useEffect(()=>{
+    console.log('useEffect called');
+  },[props.count,props.data])
+  return (
+    <div>
+    <h1>App {props.count} {props.data}</h1>
+    </div>
+  );
 }
+
+export default User;
