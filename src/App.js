@@ -1,21 +1,23 @@
 // import logo from "./logo.svg";
 // import "./App.css";
 import React, { useState } from 'react';
-import { User } from "./User";
 
 function App() {
-  const [name,setName]=useState('Ganesh');
-  const apple = ()=> {
-    alert('function called from parent');
+  const [data,setData]=useState(null);
+  const [print,setPrint]=useState(false);
+  function getData(event){
+    setData(event.target.value);
+    setPrint(false);
+    console.log(event.target.value);
   }
   return (
     <div>
-      <User
-        Name={name}
-        email="pawargyany@gmail.com"
-        other={{ address: "pune", mobileNo: "000" }}
-      />
-      <button onClick={()=> setName('Pawar')}>Update Name</button>
+    {
+
+      print? <h1>{data}</h1>: null
+    }
+      <input type='text' onChange={getData}/>
+      <button onClick={()=> setPrint(true)}>Print Data</button>
     </div>
   );
 }
