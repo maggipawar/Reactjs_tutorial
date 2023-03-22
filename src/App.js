@@ -1,21 +1,16 @@
-import React, { Component } from "react";
-import { Student } from "./Student";
+import React, { useRef } from "react";
+import Student from "./Student";
 
-export class App extends Component {
-  constructor() {
-    super();
-    this.state = {
-      count: 1,
-    };
-  }
-  render() {
-    return (
-      <>
-        <Student count={this.state.count} />
-        <button onClick={() => this.setState({ count: 1 })}>
-          Update State
-        </button>
-      </>
-    );
-  }
-}
+export const App = () => {
+  let inputRef = useRef(null);
+  const inputVal = () => {
+    inputRef.current.value = "100";
+    inputRef.current.style.color = "red";
+  };
+  return (
+    <>
+      <Student ref={inputRef} />
+      <button onClick={inputVal}>Update Ref</button>
+    </>
+  );
+};

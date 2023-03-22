@@ -1,15 +1,12 @@
-import React, { PureComponent } from "react";
+import React, { forwardRef } from "react";
 
-export class Student extends PureComponent {
-  render() {
-    console.log("Student component re-rendering");
-    return (
-      <>
-        <h1>Student component</h1>
-        <h1> {this.props.count}</h1>
-      </>
-    );
-  }
-}
+const Student = (props, ref) => {
+  return (
+    <>
+      <h1>Student component</h1>
+      <input type="text" ref={ref} />
+    </>
+  );
+};
 
-// export default Student;
+export default forwardRef(Student);
