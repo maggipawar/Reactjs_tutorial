@@ -1,21 +1,51 @@
-import React, { useRef } from "react";
-
+import React, { useState } from "react";
 export const App = () => {
-  let inputRef = useRef(null);
-
-  const submitForm = (e) => {
-    e.preventDefault();
-    console.log(inputRef.current.value);
-    let inputv = document.getElementById("input2").value;
-    console.log(inputv);
-  };
   return (
     <>
-      <form onSubmit={submitForm}>
-        <input type="text" ref={inputRef} /> <br /> <br />
-        <input type="text" id="input2" /> <br /> <br />
-        <button type="submit">Update Val</button>
-      </form>
+      <h1>HOC component</h1>
+      <HOCRed cmp={Counter} />
+      <HOCGreen cmp={Counter} />
+      <HOCBlue cmp={Counter} />
+    </>
+  );
+};
+
+const HOCRed = (props) => {
+  return (
+    <>
+      <h2 style={{ backgroundColor: "red", width: "100px" }}>
+        <props.cmp />
+      </h2>
+    </>
+  );
+};
+
+const HOCGreen = (props) => {
+  return (
+    <>
+      <h2 style={{ backgroundColor: "green", width: "100px" }}>
+        <props.cmp />
+      </h2>
+    </>
+  );
+};
+
+const HOCBlue = (props) => {
+  return (
+    <>
+      <h2 style={{ backgroundColor: "blue", width: "100px" }}>
+        <props.cmp />
+      </h2>
+    </>
+  );
+};
+
+const Counter = () => {
+  let [count, setCount] = useState(0);
+  return (
+    <>
+      <h1>{count} </h1>
+      <button onClick={() => setCount(count + 1)}>Update Count</button>
     </>
   );
 };
