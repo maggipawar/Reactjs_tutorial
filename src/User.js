@@ -1,15 +1,10 @@
-import { useEffect } from "react";
-
-export function User(props) {
-
-  useEffect(()=>{
-    console.log('useEffect called');
-  },[props.count,props.data])
+import React from "react";
+export const User = (Props) => {
+  let data = { name: "Ganesh", email: "pawar@gmail.com" };
   return (
-    <div>
-    <h1>App {props.count} {props.data}</h1>
-    </div>
+    <>
+      <h1>User Component: </h1>
+      <button onClick={() => Props.alert(data)}>Update Prop</button>
+    </>
   );
-}
-
-export default User;
+};
