@@ -1,16 +1,21 @@
 import React, { useRef } from "react";
-import Student from "./Student";
 
 export const App = () => {
   let inputRef = useRef(null);
-  const inputVal = () => {
-    inputRef.current.value = "100";
-    inputRef.current.style.color = "red";
+
+  const submitForm = (e) => {
+    e.preventDefault();
+    console.log(inputRef.current.value);
+    let inputv = document.getElementById("input2").value;
+    console.log(inputv);
   };
   return (
     <>
-      <Student ref={inputRef} />
-      <button onClick={inputVal}>Update Ref</button>
+      <form onSubmit={submitForm}>
+        <input type="text" ref={inputRef} /> <br /> <br />
+        <input type="text" id="input2" /> <br /> <br />
+        <button type="submit">Update Val</button>
+      </form>
     </>
   );
 };
