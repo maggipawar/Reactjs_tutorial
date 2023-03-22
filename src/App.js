@@ -1,16 +1,21 @@
-import React from "react";
-import { User } from "./User";
+import React, { Component } from "react";
+import { Student } from "./Student";
 
-export const App = () => {
-  // let data = "Ganesh";
-  const apple = (data) => {
-    console.log(data);
-    alert(data.name);
-  };
-  return (
-    <>
-      <h1>App Component</h1>
-      <User alert={apple} />
-    </>
-  );
-};
+export class App extends Component {
+  constructor() {
+    super();
+    this.state = {
+      count: 1,
+    };
+  }
+  render() {
+    return (
+      <>
+        <Student count={this.state.count} />
+        <button onClick={() => this.setState({ count: 1 })}>
+          Update State
+        </button>
+      </>
+    );
+  }
+}

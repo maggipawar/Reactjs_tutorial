@@ -1,15 +1,15 @@
-import React from "react";
+import React, { PureComponent } from "react";
 
-export function User(props) {
-
-  return (
-    <>
-    <h1>Student component</h1>
-    <span className="abc">{props.data.name}</span>
-    <span>{props.data.email}</span>
-    <span>{props.data.contact}</span>
-    </>
-  );
+export class Student extends PureComponent {
+  render() {
+    console.log("Student component re-rendering");
+    return (
+      <>
+        <h1>Student component</h1>
+        <h1> {this.props.count}</h1>
+      </>
+    );
+  }
 }
 
-export default User;
+// export default Student;
