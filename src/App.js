@@ -5,6 +5,7 @@ import { Home } from "./Components/Home";
 import { NavBar } from "./Components/Navbar";
 import { Page404 } from "./Components/Page404";
 import { User } from "./Components/User";
+import { Filter } from "./Components/Filter";
 
 export const App = () => {
   return (
@@ -19,6 +20,7 @@ export const App = () => {
           {/* it redirect on Home page */}
           <Route path="/*" element={<Navigate to={"/"} />}></Route>
           <Route path="/user/:name" element={<User />}></Route>
+          <Route path="/filter" element={<Filter />}></Route>
         </Routes>
       </BrowserRouter>
     </>
