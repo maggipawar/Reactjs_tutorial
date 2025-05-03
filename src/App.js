@@ -7,6 +7,7 @@ import Update from "./CRUD/Update";
 const App = () => {
   return (
     <>
+      <h2>Redux tut</h2>
       <BrowserRouter>
         <Routes>
           <Route exact path="/" element={<Create />}></Route>
